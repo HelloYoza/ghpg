@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import Link from 'next/link';
 import Header from '../../components/Header';
 
 export default function About() {
@@ -14,7 +15,8 @@ export default function About() {
 
   // Stats animation effect
   useEffect(() => {
-    if (isVisible['stats-section']) {
+    const statsVisible = isVisible['stats-section'];
+    if (statsVisible) {
       const animateNumber = (target: number, key: keyof typeof animatedStats, duration: number = 2000) => {
         const startTime = Date.now();
         const startValue = 0;
@@ -45,7 +47,7 @@ export default function About() {
       setTimeout(() => animateNumber(15, 'years'), 300);
       setTimeout(() => animateNumber(98, 'satisfaction'), 500);
     }
-  }, [isVisible['stats-section']]);
+  }, [isVisible]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,14 +67,15 @@ export default function About() {
       }
     );
 
-    Object.values(elementsRef.current).forEach((element) => {
+    const currentElements = elementsRef.current;
+    Object.values(currentElements).forEach((element) => {
       if (element) {
         observer.observe(element);
       }
     });
 
     return () => {
-      Object.values(elementsRef.current).forEach((element) => {
+      Object.values(currentElements).forEach((element) => {
         if (element) {
           observer.unobserve(element);
         }
@@ -212,7 +215,7 @@ export default function About() {
             <div>
               <h4 className="text-lg font-bold text-white mb-4" style={{fontFamily: 'Poppins, sans-serif'}}>Quick Links</h4>
               <ul className="space-y-3">
-                <li><a href="/" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Home</a></li>
+                <li><Link href="/" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Home</Link></li>
                 <li><a href="/about" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>About</a></li>
                 <li><a href="/services" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Services</a></li>
                 <li><a href="/portfolio" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Portfolio</a></li>

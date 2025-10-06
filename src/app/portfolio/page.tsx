@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import Header from '../../components/Header';
 
 export default function Portfolio() {
@@ -1046,7 +1047,7 @@ export default function Portfolio() {
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <h3 className="text-3xl font-bold text-gray-900 mb-6" style={{fontFamily: 'Poppins, sans-serif'}}>Ready to Get Started?</h3>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto" style={{fontFamily: 'Poppins, sans-serif'}}>
-            Let's discuss your project requirements and explore how our services can help you achieve your goals. Our team is ready to provide expert guidance and support.
+            Let&apos;s discuss your project requirements and explore how our services can help you achieve your goals. Our team is ready to provide expert guidance and support.
           </p>
           <a href="/contact" className="inline-block bg-gray-800 text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-700 transition-colors duration-200" style={{fontFamily: 'Poppins, sans-serif'}}>
             Contact Us Today
@@ -1070,7 +1071,7 @@ export default function Portfolio() {
             <div>
               <h4 className="text-lg font-bold text-white mb-4" style={{fontFamily: 'Poppins, sans-serif'}}>Quick Links</h4>
               <ul className="space-y-3">
-                <li><a href="/" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Home</a></li>
+                <li><Link href="/" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Home</Link></li>
                 <li><a href="/about" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>About</a></li>
                 <li><a href="/services" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Services</a></li>
                 <li><a href="/portfolio" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Portfolio</a></li>

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Header() {
   return (
     <header className="sticky top-0 w-full z-50 bg-black">
@@ -11,10 +13,10 @@ export default function Header() {
           </div>
           {/* Navigation Items */}
           <nav className="flex items-center space-x-12">
-            <a href="/" className="relative text-white font-extrabold text-base hover:text-gray-200 transition-colors duration-300 group">
+            <Link href="/" className="relative text-white font-extrabold text-base hover:text-gray-200 transition-colors duration-300 group">
               Home
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            </Link>
             <a href="/about" className="relative text-white font-extrabold text-base hover:text-gray-200 transition-colors duration-300 group">
               About
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>

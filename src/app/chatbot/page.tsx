@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 import Header from '../../components/Header';
 
 export default function Chatbot() {
@@ -99,7 +100,7 @@ export default function Chatbot() {
                   </svg>
                 </div>
                 <div className="bg-white border border-gray-200 rounded-lg p-4 max-w-xs">
-                  <p className="text-gray-800" style={{fontFamily: 'Poppins, sans-serif'}}>Hello! I'm your AI assistant. How can I help you today?</p>
+                  <p className="text-gray-800" style={{fontFamily: 'Poppins, sans-serif'}}>Hello! I&apos;m your AI assistant. How can I help you today?</p>
                   <span className="text-xs text-gray-500 mt-1 block" style={{fontFamily: 'Poppins, sans-serif'}}>Just now</span>
                 </div>
               </div>
@@ -242,7 +243,7 @@ export default function Chatbot() {
             <div>
               <h4 className="text-lg font-bold text-white mb-4" style={{fontFamily: 'Poppins, sans-serif'}}>Quick Links</h4>
               <ul className="space-y-3">
-                <li><a href="/" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Home</a></li>
+                <li><Link href="/" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Home</Link></li>
                 <li><a href="/about" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>About</a></li>
                 <li><a href="/services" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Services</a></li>
                 <li><a href="/portfolio" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Portfolio</a></li>

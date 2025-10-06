@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState<{[key: string]: boolean}>({});
@@ -8,11 +9,6 @@ export default function Home() {
   const [displayedText, setDisplayedText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
-  const [animatedStats, setAnimatedStats] = useState({
-    projects: 0,
-    years: 0,
-    satisfaction: 0
-  });
   
   const fullText = "Ghan Property Group";
 
@@ -64,40 +60,6 @@ export default function Home() {
     return () => clearInterval(cursorInterval);
   }, [isTypingComplete]);
 
-  // Stats animation effect
-  useEffect(() => {
-    if (isVisible['stats-section']) {
-      const animateNumber = (target: number, key: keyof typeof animatedStats, duration: number = 2000) => {
-        const startTime = Date.now();
-        const startValue = 0;
-        
-        const animate = () => {
-          const elapsed = Date.now() - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          
-          // Easing function for smooth animation
-          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-          const currentValue = Math.floor(startValue + (target - startValue) * easeOutQuart);
-          
-          setAnimatedStats(prev => ({
-            ...prev,
-            [key]: currentValue
-          }));
-          
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          }
-        };
-        
-        requestAnimationFrame(animate);
-      };
-      
-      // Animate each stat with slight delays
-      setTimeout(() => animateNumber(500, 'projects'), 100);
-      setTimeout(() => animateNumber(15, 'years'), 300);
-      setTimeout(() => animateNumber(98, 'satisfaction'), 500);
-    }
-  }, [isVisible['stats-section']]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -117,14 +79,15 @@ export default function Home() {
       }
     );
 
-    Object.values(elementsRef.current).forEach((element) => {
+    const currentElements = elementsRef.current;
+    Object.values(currentElements).forEach((element) => {
       if (element) {
         observer.observe(element);
       }
     });
 
     return () => {
-      Object.values(elementsRef.current).forEach((element) => {
+      Object.values(currentElements).forEach((element) => {
         if (element) {
           observer.unobserve(element);
         }
@@ -170,10 +133,10 @@ export default function Home() {
                       </div>
                       {/* Navigation Items */}
                       <nav className="flex items-center space-x-12">
-                        <a href="/" className="relative text-white font-extrabold text-base hover:text-gray-200 transition-colors duration-300 group" style={{fontFamily: 'Poppins, sans-serif'}}>
+                        <Link href="/" className="relative text-white font-extrabold text-base hover:text-gray-200 transition-colors duration-300 group" style={{fontFamily: 'Poppins, sans-serif'}}>
                           Home
                           <span className="absolute bottom-0 left-0 w-full h-0.5 bg-white"></span>
-                        </a>
+                        </Link>
                         <a href="/about" className="relative text-white font-extrabold text-base hover:text-gray-200 transition-colors duration-300 group" style={{fontFamily: 'Poppins, sans-serif'}}>
                           About
                           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
@@ -314,10 +277,10 @@ export default function Home() {
             >
               <h2 className="text-4xl font-bold text-gray-900 mb-6" style={{fontFamily: 'Poppins, sans-serif'}}>Welcome to Our Platform</h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-6" style={{fontFamily: 'Poppins, sans-serif'}}>
-                We provide innovative solutions that help businesses grow and succeed in today's digital landscape. Our team of experts is dedicated to delivering exceptional results.
+                We provide innovative solutions that help businesses grow and succeed in today&apos;s digital landscape. Our team of experts is dedicated to delivering exceptional results.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed mb-8" style={{fontFamily: 'Poppins, sans-serif'}}>
-                With years of experience and a passion for excellence, we've helped countless companies achieve their goals and reach new heights of success.
+                With years of experience and a passion for excellence, we&apos;ve helped countless companies achieve their goals and reach new heights of success.
               </p>
               <button className="bg-gradient-to-r from-gray-800 to-gray-900 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl hover:scale-105 hover:from-gray-700 hover:to-gray-800 transition-all duration-500 ease-in-out transform" style={{fontFamily: 'Poppins, sans-serif'}}>
                 Discover More
@@ -531,7 +494,7 @@ export default function Home() {
             <div>
               <h4 className="text-lg font-bold text-white mb-4" style={{fontFamily: 'Poppins, sans-serif'}}>Quick Links</h4>
               <ul className="space-y-3">
-                <li><a href="/" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Home</a></li>
+                <li><Link href="/" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Home</Link></li>
                 <li><a href="/about" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>About</a></li>
                 <li><a href="/services" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Services</a></li>
                 <li><a href="/portfolio" className="text-white hover:text-gray-300 transition-colors duration-300" style={{fontFamily: 'Poppins, sans-serif'}}>Portfolio</a></li>
