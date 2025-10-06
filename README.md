@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ghan Property Group
+
+A modern, responsive website for Ghan Property Group built with Next.js, TypeScript, and Tailwind CSS.
+
+## Features
+
+- 🎥 **Video Background Hero Section** - Dynamic video background with typing animation
+- 📱 **Fully Responsive** - Optimized for all device sizes
+- ⚡ **Fast Performance** - Built with Next.js for optimal speed
+- 🎨 **Modern Design** - Clean, professional UI with Tailwind CSS
+- 🔤 **Custom Typography** - Poppins font family throughout
+- 🎭 **Smooth Animations** - Scroll-triggered animations and transitions
+
+## Tech Stack
+
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Font**: Poppins
+- **Deployment**: GitHub Pages / Vercel
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/HelloYoza/ghpg.git
+cd ghpg
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+### Quick Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Use the included deployment script:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+./deploy.sh
+```
 
-## Deploy on Vercel
+### Manual Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Add and commit your changes:
+```bash
+git add .
+git commit -m "Your commit message"
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Push to GitHub:
+```bash
+git push origin main
+```
+
+## Project Structure
+
+```
+ghpg/
+├── src/
+│   └── app/
+│       ├── about/          # About page
+│       ├── contact/        # Contact page
+│       ├── chatbot/        # Chatbot page
+│       ├── portfolio/      # Portfolio page
+│       ├── services/       # Services pages
+│       └── page.tsx        # Home page
+├── public/
+│   ├── videos/            # Video assets
+│   └── images/            # Image assets
+├── deploy.sh              # Deployment script
+└── README.md              # This file
+```
+
+## Pages
+
+- **Home** (`/`) - Hero section with video background and typing animation
+- **About** (`/about`) - Company information and stats
+- **Services** (`/services`) - Service offerings and details
+- **Portfolio** (`/portfolio`) - Project showcase
+- **Contact** (`/contact`) - Contact form and information
+- **Chatbot** (`/chatbot`) - AI assistant interface
+
+## Customization
+
+### Changing the Video Background
+
+1. Replace the video file in `public/videos/`
+2. Update the video path in `src/app/page.tsx`
+
+### Updating Company Information
+
+- Company name: Update `fullText` variable in `src/app/page.tsx`
+- Contact info: Update footer sections across pages
+- Services: Modify service pages in `src/app/services/`
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+This project is proprietary to Ghan Property Group.
+
+## Contact
+
+For questions or support, please contact the development team.
+
+---
+
+Built with ❤️ for Ghan Property Group
