@@ -274,6 +274,27 @@ export default function Home() {
         </video>
       </section>
 
+      {/* Normal Video Player Section */}
+      <section className="w-full bg-gray-100 py-16">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4" style={{fontFamily: 'Poppins, sans-serif'}}>Watch Our Video</h2>
+            <p className="text-lg text-gray-600" style={{fontFamily: 'Poppins, sans-serif'}}>Experience our work in action</p>
+          </div>
+          <div className="relative bg-black rounded-lg overflow-hidden shadow-2xl">
+            <video 
+              className="w-full h-auto"
+              controls
+              preload="metadata"
+              poster="/images/images.jpeg"
+            >
+              <source src="/videos/1006.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
       {/* Text and Images Section */}
       <section className="w-full bg-white py-20">
         <div className="w-full max-w-[1600px] mx-auto px-12 sm:px-16 lg:px-24">
