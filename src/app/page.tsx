@@ -259,7 +259,20 @@ export default function Home() {
         </div>
       </section>
 
-
+      {/* Video Section */}
+      <section className="w-full h-screen relative">
+        <video 
+          className="w-full h-full object-cover"
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          preload="auto"
+        >
+          <source src="/videos/1006.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </section>
 
       {/* Text and Images Section */}
       <section className="w-full bg-white py-20">
